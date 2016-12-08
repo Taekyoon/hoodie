@@ -15,15 +15,7 @@ if (saveRequested) {
   var packageJson = require(path.join(pathToAppRoot, 'package.json'))
 
   packageJson.scripts = packageJson.scripts || {}
-
-  if (packageJson.scripts[ 'start' ]) {
-    log.info('setup', 'start script already set to "' + packageJson.scripts[ 'start' ] +
-    ', you can start hoodie with "npm run start-hoodie" instead')
-
-    packageJson.scripts[ 'start-hoodie' ] = 'hoodie'
-  } else {
-    packageJson.scripts[ 'start' ] = 'hoodie'
-  }
+  packageJson.scripts[ 'start' ] = 'hoodie'
 
   var newPackageJson = JSON.stringify(packageJson, null, 2)
 
